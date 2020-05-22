@@ -11,7 +11,7 @@
 
 <script>
 import Vue from "vue";
-
+/*
 var f3d_interaction = class {
   constructor() {
     this.ret_up = "up event";
@@ -31,7 +31,7 @@ var f3d_interaction = class {
     return this.ret_move + "-" + x + "-" + y;
   }
 };
-/*
+
 var f3d_interaction2 = class extends f3d_interaction {
   constructor() {
     super();
