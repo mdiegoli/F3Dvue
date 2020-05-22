@@ -34,6 +34,7 @@
 <script>
 import F3dButton from "./components/F3dButton";
 import F3dCanvas from "./components/F3dCanvas";
+import Vue from "vue";
 
 var f3d_button = class {
   constructor(id, fn, fn1, fn2, img) {
@@ -42,9 +43,54 @@ var f3d_button = class {
     this.fn1 = fn1;
     this.fn2 = fn2;
     this.img = img;
+    this.ret_up = "up event";
+    this.ret_move = "move event";
+    this.ret_down = "down event";
   }
   up() {
     this.fn = this.fn.indexOf(this.fn1) === -1 ? this.fn1 : this.fn2;
+    Vue.prototype.$f3dInteraction = this;
+  }
+
+  e_up(x, y) {
+    return this.ret_up + "-" + x + "-" + y;
+  }
+
+  e_down(x, y) {
+    return this.ret_down + "-" + x + "-" + y;
+  }
+
+  e_move(x, y) {
+    return this.ret_move + "-" + x + "-" + y;
+  }
+};
+
+var f3d_button2 = class {
+  constructor(id, fn, fn1, fn2, img) {
+    this.id = id;
+    this.fn = fn;
+    this.fn1 = fn1;
+    this.fn2 = fn2;
+    this.img = img;
+    this.ret_up = "up event 2 ";
+    this.ret_move = "move event 2 ";
+    this.ret_down = "down event 2 ";
+  }
+  up() {
+    this.fn = this.fn.indexOf(this.fn1) === -1 ? this.fn1 : this.fn2;
+    Vue.prototype.$f3dInteraction = this;
+  }
+
+  e_up(x, y) {
+    return this.ret_up + "-" + x + "-" + y;
+  }
+
+  e_down(x, y) {
+    return this.ret_down + "-" + x + "-" + y;
+  }
+
+  e_move(x, y) {
+    return this.ret_move + "-" + x + "-" + y;
   }
 };
 
@@ -57,6 +103,15 @@ export default {
       { name: "description", content: "gator" },
       { name: "viewport", content: "width=device-width, initial-scale=1" }
     ]
+  },
+  mounted: function() {
+    Vue.prototype.$f3dInteraction = new f3d_button(
+      "moveCamera",
+      "CAMERA",
+      "DRAW",
+      "CAMERA",
+      "images/pencil.svg"
+    );
   },
   components: {
     F3dButton,
@@ -81,7 +136,7 @@ export default {
           "CAMERA",
           "images/pencil.svg"
         ),
-        new f3d_button(
+        new f3d_button2(
           "curveLine",
           "CURVE",
           "LINE",

@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import Vue from "vue";
+
 var f3d_interaction = class {
   constructor() {
     this.ret_up = "up event";
@@ -54,7 +56,7 @@ export default {
     };
   },
   mounted: function() {
-    this.interaction = new f3d_interaction();
+    //this.interaction = new f3d_interaction();
   },
   methods: {
     move: function(e) {
@@ -62,34 +64,34 @@ export default {
       this.oldY = this.y;
       this.x = e.pageX;
       this.y = e.pageY;
-      console.log(this.interaction.move(this.x, this.y));
+      console.log(Vue.prototype.$f3dInteraction.e_move(this.x, this.y));
     },
     up: function(e) {
       this.x = e.pageX;
       this.y = e.pageY;
-      console.log(this.interaction.up(this.x, this.y));
+      console.log(Vue.prototype.$f3dInteraction.e_up(this.x, this.y));
     },
     down: function(e) {
       this.x = e.pageX;
       this.y = e.pageY;
-      console.log(this.interaction.down(this.x, this.y));
+      console.log(Vue.prototype.$f3dInteraction.e_down(this.x, this.y));
     },
     t_move: function(e) {
       this.oldX = this.x;
       this.oldY = this.y;
       this.x = e.changedTouches[0].pageX;
       this.y = e.changedTouches[0].pageY;
-      console.log(this.interaction.move(this.x, this.y));
+      console.log(Vue.prototype.$f3dInteraction.e_move(this.x, this.y));
     },
     t_up: function(e) {
       this.x = e.changedTouches[0].pageX;
       this.y = e.changedTouches[0].pageY;
-      console.log(this.interaction.up(this.x, this.y));
+      console.log(Vue.prototype.$f3dInteraction.e_up(this.x, this.y));
     },
     t_down: function(e) {
       this.x = e.changedTouches[0].pageX;
       this.y = e.changedTouches[0].pageY;
-      console.log(this.interaction.down(this.x, this.y));
+      console.log(Vue.prototype.$f3dInteraction.e_down(this.x, this.y));
     }
   }
 };
