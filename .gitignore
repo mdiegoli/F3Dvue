@@ -1,0 +1,11 @@
+dist/
+node_modules/
+pdf/
+SCORM-modules/
+documenti/
+configs.json
+npm-debug.log
+
+js/jqwidgets/
+
+js/jqwscripts/

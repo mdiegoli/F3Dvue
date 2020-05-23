@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import F3dButton from "./components/F3dButton";
-import F3dCanvas from "./components/F3dCanvas";
+import F3dButton from "./components/F3dButton.vue";
+import F3dCanvas from "./components/F3dCanvas.vue";
 import Vue from "vue";
 
 var f3d_button = class {
