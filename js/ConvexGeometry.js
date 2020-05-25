@@ -6,8 +6,8 @@ import {
 	BufferGeometry,
 	Float32BufferAttribute,
 	Geometry
-} from "three.module.js";
-import { ConvexHull } from "ConvexHull.mod.js";
+} from "./three.module.js";
+import { ConvexHull } from "./ConvexHull.mod.js";
 
 // ConvexGeometry
 

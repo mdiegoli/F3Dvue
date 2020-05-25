@@ -5,7 +5,7 @@
  *
  */
 
-import { Line3, Plane, Triangle, Vector3 } from "three.module.js";
+import { Line3, Plane, Triangle, Vector3 } from "./three.module.js";
 
 var ConvexHull = (function() {
   var Visible = 0;

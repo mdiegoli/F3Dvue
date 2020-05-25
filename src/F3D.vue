@@ -35,6 +35,7 @@
 import F3dButton from "./components/F3dButton.vue";
 import F3dCanvas from "./components/F3dCanvas.vue";
 import Vue from "vue";
+import { F3DInteraction } from "../js/F3DInteraction.js"
 
 var f3d_button = class {
   constructor(id, fn, fn1, fn2, img) {
@@ -105,7 +106,7 @@ export default {
     ]
   },
   mounted: function() {
-    Vue.prototype.$f3dInteraction = new f3d_button(
+    Vue.prototype.$f3dInteraction = new F3DInteraction(
       "moveCamera",
       "CAMERA",
       "DRAW",
