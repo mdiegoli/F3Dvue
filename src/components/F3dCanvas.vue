@@ -128,11 +128,11 @@ export default {
     spotLight.shadow.camera.fov = 30;
     spotLight.target = this.plane;
     this.scene.add(spotLight);
-    this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    this.renderer = new THREE.WebGLRenderer({ antialias: true, canvas: this.container});
     this.renderer.setClearColor(0xf0f0f0);
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.container.appendChild(this.renderer.domElement);
+    //this.container.appendChild(this.renderer.domElement);
     this.group = new THREE.Group();
     this.interpolate_group = new THREE.Group();
     this.ch_group = new THREE.Group();
