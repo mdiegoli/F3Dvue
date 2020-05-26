@@ -24,5 +24,6 @@ export default {
   border: 1px solid black;
   background: white;
   border-radius: 5px;
+  text-align: center;
 }
 </style>
