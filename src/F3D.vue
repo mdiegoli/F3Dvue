@@ -5,8 +5,8 @@
         <div v-on:click="fn_hideShowToolbar">
           <svg
             class="bi bi-justify"
-            width="1em"
-            height="1em"
+            width="1.5em"
+            height="1.5em"
             viewBox="0 0 16 16"
             fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
