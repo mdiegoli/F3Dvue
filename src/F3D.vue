@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div style="position: absolute; top: 10px; width: 100%; text-align: center;">
+    <div style="position: absolute; top: 10px; width: 100%;">
       <div id="toolbar" class="toolbar">
         <div v-on:click="fn_hideShowToolbar">
           <svg
