@@ -49,6 +49,15 @@ var f3d_button = class {
     this.ret_down = "down event";
   }
   up() {
+    if(this.drawMove.indexOf('MOVE') != -1){
+			this.controls.enabled = true;
+			this.drawMove = 'DRAW';	
+		}
+		else{
+			this.controls.enabled = false;
+			this.drawMove = 'MOVE';
+		}
+  
     this.fn = this.fn.indexOf(this.fn1) === -1 ? this.fn1 : this.fn2;
     Vue.prototype.$f3dInteraction = this;
   }
