@@ -184,6 +184,7 @@ export default {
     this.isShiftDown = false; 
     this.draw_mode = true;
     this.SPHERESCALE = 1;
+    this.drawMove = "MOVE";
     this.render();
     
   },
