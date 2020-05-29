@@ -38,7 +38,7 @@ import Vue from "vue";
 import { F3DInteraction } from "../js/F3DInteraction.js"
 
 var f3d_button = class {
-  constructor(id, fn, fn1, fn2, img) {
+  constructor(id, fn, fn1, fn2, img, vm) {
     this.id = id;
     this.fn = fn;
     this.fn1 = fn1;
@@ -47,10 +47,11 @@ var f3d_button = class {
     this.ret_up = "up event";
     this.ret_move = "move event";
     this.ret_down = "down event";
+    this.vm = vm;
   }
   up() {
   console.log('button up')
-  console.log(this)
+  console.log(this.vm)
     if(this.drawMove.indexOf('MOVE') != -1){
 			this.controls.enabled = true;
 			this.drawMove = 'DRAW';	
@@ -146,14 +147,16 @@ export default {
           "CAMERA",
           "DRAW",
           "CAMERA",
-          "images/pencil.svg"
+          "images/pencil.svg",
+	  this
         ),
         new f3d_button2(
           "curveLine",
           "CURVE",
           "LINE",
           "CURVE",
-          "images/pencil.svg"
+          "images/pencil.svg",
+	  this
         )
       ]
     };
