@@ -49,7 +49,6 @@ var f3d_button = class {
     this.ret_down = "down event";
   }
   up() {
-    debugger;
     if(this.drawMove.indexOf('MOVE') != -1){
 			this.controls.enabled = true;
 			this.drawMove = 'DRAW';	
