@@ -14,7 +14,7 @@ import Vue from "vue";
 import * as THREE from "../../js/three.module.js";
 import { ConvexBufferGeometry } from "../../js/ConvexGeometry.js";
 import { OrbitControls } from "../../js/OrbitControls.js";
-
+import {eventBus} from "../eventBus.js";
 /*
 var f3d_interaction = class {
   constructor() {
@@ -185,10 +185,41 @@ export default {
     this.draw_mode = true;
     this.SPHERESCALE = 1;
     this.drawMove = "MOVE";
+    eventBus.$on('cameraDraw',this.cameraDrawEventHandler)
+    eventBus.$on('curveLine',this.curveLineEventHandler)
     this.render();
     
   },
   methods: {
+    cameraDrawEventHandler: function(){
+      console.log('cameraDraw handler')
+      this.ret_up = "up event";
+      this.ret_move = "move event";
+      this.ret_down = "down event";
+      if(this.drawMove.indexOf('MOVE') != -1){
+        this.controls.enabled = true;
+        this.drawMove = 'DRAW';	
+      }
+      else{
+        this.controls.enabled = false;
+        this.drawMove = 'MOVE';
+      }
+    },
+    curveLineEventHandler: function(){
+      console.log('cameraDraw handler')
+      this.ret_up = "up event 2 ";
+      this.ret_move = "move event 2 ";
+      this.ret_down = "down event 2 ";
+      this.lineCurve = !this.lineCurve;
+      if(this.lineCurve){
+        this.lineCurveLabel = 'LINE';	
+      }
+      else{
+        this.lineCurveLabel = 'CURVE';
+      }
+      this.up("",true);
+    
+    },
     move: function(e) {
       this.oldX = this.x;
       this.oldY = this.y;
@@ -577,7 +608,44 @@ export default {
       this.r_interpolate2Spheres(s1, sphere, i, ii);
       this.r_interpolate2Spheres(sphere, s2, i, ii);
     }
+  },
+  createCurve(curvePoints, curveScales) {
+    //Create a closed wavey loop
+    var curve = new THREE.CatmullRomCurve3(curvePoints);
+    var points = curve.getPoints(
+      this.NUMINTSPHERECURVE * (curvePoints.length - 1)
+    );
+    var scale1 = [];
+    var scale2 = [];
+    var scaleStepX = 0;
+    var scaleStepY = 0;
+    var scaleStepZ = 0;
+    for (let p = 0, p_l = points.length; p < p_l; p++) {
+      if (p && p % this.NUMINTSPHERECURVE) {
+        let sphere = this.createSphere(0xff0000);
+
+        sphere.position.x = points[p].x;
+        sphere.position.y = points[p].y;
+        sphere.position.z = points[p].z;
+        sphere.scale.x = scale1.x - (p % this.NUMINTSPHERECURVE) * scaleStepX; //s1.scale.x - token_scale_x*(s+1);
+        sphere.scale.y = scale1.y - (p % this.NUMINTSPHERECURVE) * scaleStepY; //s1.scale.y - token_scale_y*(s+1);
+        sphere.scale.z = scale1.z - (p % this.NUMINTSPHERECURVE) * scaleStepZ; //s1.scale.z - token_scale_z*(s+1);
+        sphere.name =
+          "interpolation_curve_" + this.bodyNumber + "_" + this.chainsNumber;
+
+        this.interpolate_group.add(sphere);
+      } else {
+        if (p < p_l - 1) {
+          scale1 = curveScales[p / this.NUMINTSPHERECURVE];
+          scale2 = curveScales[p / this.NUMINTSPHERECURVE + 1];
+          scaleStepX = (scale1.x - scale2.x) / this.NUMINTSPHERECURVE;
+          scaleStepY = (scale1.y - scale2.y) / this.NUMINTSPHERECURVE;
+          scaleStepZ = (scale1.z - scale2.z) / this.NUMINTSPHERECURVE;
+        }
+      }
+    }
   }
+
 
 
 

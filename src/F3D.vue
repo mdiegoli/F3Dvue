@@ -35,7 +35,8 @@
 import F3dButton from "./components/F3dButton.vue";
 import F3dCanvas from "./components/F3dCanvas.vue";
 import Vue from "vue";
-import { F3DInteraction } from "../js/F3DInteraction.js"
+import { F3DInteractionCameraDraw } from "../js/F3DInteraction.js"
+import {eventBus} from "./eventBus.js";
 
 var f3d_button = class {
   constructor(id, fn, fn1, fn2, img, vm) {
@@ -52,6 +53,10 @@ var f3d_button = class {
   up() {
   console.log('button up')
   console.log(this.vm)
+    this.fn = this.fn.indexOf(this.fn1) === -1 ? this.fn1 : this.fn2;
+    Vue.prototype.$f3dInteraction = this;
+    eventBus.$emit('cameraDraw',false);
+    /*
     if(this.drawMove.indexOf('MOVE') != -1){
 			this.controls.enabled = true;
 			this.drawMove = 'DRAW';	
@@ -59,10 +64,8 @@ var f3d_button = class {
 		else{
 			this.controls.enabled = false;
 			this.drawMove = 'MOVE';
-		}
-  
-    this.fn = this.fn.indexOf(this.fn1) === -1 ? this.fn1 : this.fn2;
-    Vue.prototype.$f3dInteraction = this;
+    }
+    */
   }
 
   e_up(x, y) {
@@ -92,6 +95,7 @@ var f3d_button2 = class {
   up() {
     this.fn = this.fn.indexOf(this.fn1) === -1 ? this.fn1 : this.fn2;
     Vue.prototype.$f3dInteraction = this;
+    eventBus.$emit('curveLine',false);
   }
 
   e_up(x, y) {
@@ -118,7 +122,7 @@ export default {
     ]
   },
   mounted: function() {
-    Vue.prototype.$f3dInteraction = new F3DInteraction(
+    Vue.prototype.$f3dInteraction = new F3DInteractionCameraDraw(
       "moveCamera",
       "CAMERA",
       "DRAW",
@@ -142,14 +146,13 @@ export default {
         showHideToolbar: false
       },
       buttons: [
-        new f3d_button(
-          "moveCamera",
-          "CAMERA",
-          "DRAW",
-          "CAMERA",
-          "images/pencil.svg",
-	  this
-        ),
+         new F3DInteractionCameraDraw(
+      "moveCamera",
+      "CAMERA",
+      "DRAW",
+      "CAMERA",
+      "images/pencil.svg"
+    ),
         new f3d_button2(
           "curveLine",
           "CURVE",

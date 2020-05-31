@@ -1,4 +1,8 @@
-var F3DInteraction = class {
+import {eventBus} from "../src/eventBus.js";
+import Vue from "vue";
+
+
+var F3DInteractionCameraDraw = class {
   constructor(id, fn, fn1, fn2, img) {
     this.id = id;
     this.fn = fn;
@@ -12,6 +16,8 @@ var F3DInteraction = class {
   up() {
     this.fn = this.fn.indexOf(this.fn1) === -1 ? this.fn1 : this.fn2;
     Vue.prototype.$f3dInteraction = this;
+    eventBus.$emit('cameraDraw',false);
+
   }
 
   e_up(fromScale,x, y) {
@@ -149,4 +155,4 @@ var F3DInteraction = class {
     
 }
 
-export { F3DInteraction }
+export { F3DInteractionCameraDraw }
