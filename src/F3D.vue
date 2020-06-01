@@ -35,7 +35,7 @@
 import F3dButton from "./components/F3dButton.vue";
 import F3dCanvas from "./components/F3dCanvas.vue";
 import Vue from "vue";
-import { F3DInteractionCameraDraw } from "../js/F3DInteraction.js"
+import { F3DInteractionCameraDraw,F3DInteractionCurveLine } from "../js/F3DInteraction.js"
 import {eventBus} from "./eventBus.js";
 
 var f3d_button = class {
@@ -153,13 +153,12 @@ export default {
       "CAMERA",
       "images/pencil.svg"
     ),
-        new f3d_button2(
+        new F3DInteractionCurveLine(
           "curveLine",
           "CURVE",
           "LINE",
           "CURVE",
-          "images/pencil.svg",
-	  this
+          "images/pencil.svg"
         )
       ]
     };
