@@ -217,7 +217,7 @@ export default {
       else{
         this.lineCurveLabel = 'CURVE';
       }
-      this.up("",true);
+      Vue.prototype.$f3dInteraction.e_up.call(this, "", this.x, this.y)
     
     },
     move: function(e) {
