@@ -211,6 +211,7 @@ export default {
       this.ret_move = "move event 2 ";
       this.ret_down = "down event 2 ";
       this.lineCurve = !this.lineCurve;
+      this.draw_mode = false;
       if(this.lineCurve){
         this.lineCurveLabel = 'LINE';	
       }
