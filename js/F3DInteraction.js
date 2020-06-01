@@ -155,4 +155,24 @@ var F3DInteractionCameraDraw = class {
     
 }
 
-export { F3DInteractionCameraDraw }
+var F3DInteractionCurveLine = class extends F3DInteractionCameraDraw {
+  constructor(id, fn, fn1, fn2, img) {
+    super()
+    this.id = id;
+    this.fn = fn;
+    this.fn1 = fn1;
+    this.fn2 = fn2;
+    this.img = img;
+    this.ret_up = "up event 2 ";
+    this.ret_move = "move event 2 ";
+    this.ret_down = "down event 2 ";
+  }
+  up() {
+    this.fn = this.fn.indexOf(this.fn1) === -1 ? this.fn1 : this.fn2;
+    Vue.prototype.$f3dInteraction = this;
+    eventBus.$emit('curveLine',false);
+
+  }
+}
+
+export { F3DInteractionCameraDraw, F3DInteractionCurveLine}
