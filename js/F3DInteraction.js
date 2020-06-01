@@ -155,7 +155,7 @@ var F3DInteractionCameraDraw = class {
     
 }
 
-var F3DInteractionCurveLine = class extends F3DInteractionCameraDraw {
+class F3DInteractionCurveLine extends F3DInteractionCameraDraw {
   constructor(id, fn, fn1, fn2, img) {
     super()
     this.ret_up = "up event 2 ";
