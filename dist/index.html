@@ -20,30 +20,26 @@
 
   <script src="build.js"></script>
 
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+
   <script>
-    var colors = {
-      "danger-color": "#e74c3c",
-      "success-color": "#81b53e",
-      "warning-color": "#f0ad4e",
-      "inverse-color": "#2c3e50",
-      "info-color": "#2d7cb5",
-      "default-color": "#6e7882",
-      "default-light-color": "#cfd9db",
-      "purple-color": "#9D8AC7",
-      "mustard-color": "#d4d171",
-      "lightred-color": "#e15258",
-      "body-bg": "#f6f6f6"
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyC5XatCDY9ooKyrK4eXF3v2e36DiGtptLw",
+      authDomain: "fast3d-1294.firebaseapp.com",
+      databaseURL: "https://fast3d-1294.firebaseio.com",
+      projectId: "fast3d-1294",
+      storageBucket: "fast3d-1294.appspot.com",
+      messagingSenderId: "573165035351",
+      appId: "1:573165035351:web:a66a0eb75a859814272812"
     };
-    var config = {
-      theme: "html",
-      skins: {
-        "default": {
-          "primary-color": "#42a5f5"
-        }
-      }
-    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
   </script>
-  <!-- Template JS -->
 </body>
 
 </html>
