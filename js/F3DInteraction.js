@@ -103,7 +103,7 @@ var F3DInteractionCameraDraw = class {
             this.indexPickedBody = token_body;
             this.indexPickedChain = token_chain;
             this.setSelect(true);
-            this.addSphereToScene(this, voxel, intersects[0]);
+            this.addSphereToScene(voxel, intersects[0]);
             this.render();
         } else if (intersects[0].object.name.indexOf("wp") !== -1) {
             this.intersect = intersects[0];
