@@ -7,3 +7,5 @@ Netflify https://app.netlify.com/teams/mdiegoli/sites - url https://f3d.netlify.
 Migration to Vue 3 https://v3.vuejs.org/guide/migration/introduction.html#quickstart
 
 Improve performance: https://evilmartians.com/chronicles/faster-webgl-three-js-3d-graphics-with-offscreencanvas-and-web-workers
+
+                     https://threejsfundamentals.org/threejs/lessons/threejs-offscreencanvas.html
