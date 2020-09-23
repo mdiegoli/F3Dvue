@@ -8,6 +8,8 @@ Migration to Vue 3 https://v3.vuejs.org/guide/migration/introduction.html#quicks
 
 Improve performance: https://evilmartians.com/chronicles/faster-webgl-three-js-3d-graphics-with-offscreencanvas-and-web-workers
 
-                     https://threejsfundamentals.org/threejs/lessons/threejs-offscreencanvas.html
+Offscreencanvas: https://threejsfundamentals.org/threejs/lessons/threejs-offscreencanvas.html
 
-                     https://www.google.com/search?q=three.js+performance&oq=three.js+perf&aqs=chrome.0.0l2j69i57j0l5.7110j0j4&sourceid=chrome&ie=UTF-8
+Google search about threejs performance: https://www.google.com/search?q=three.js+performance&oq=three.js+perf&aqs=chrome.0.0l2j69i57j0l5.7110j0j4&sourceid=chrome&ie=UTF-8
+
+threejs tips and tricks: https://discoverthreejs.com/tips-and-tricks/
