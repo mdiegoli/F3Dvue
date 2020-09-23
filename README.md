@@ -13,3 +13,5 @@ Offscreencanvas: https://threejsfundamentals.org/threejs/lessons/threejs-offscre
 Google search about threejs performance: https://www.google.com/search?q=three.js+performance&oq=three.js+perf&aqs=chrome.0.0l2j69i57j0l5.7110j0j4&sourceid=chrome&ie=UTF-8
 
 threejs tips and tricks: https://discoverthreejs.com/tips-and-tricks/
+
+skimlabs: http://skimlabs.appspot.com/editor/
